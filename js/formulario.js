@@ -11,7 +11,7 @@ const formularioCliente = data => {
             if(letraApi.indexOf(botonPresionado) !== -1){
                 return item;
             }
-        });
+        });        
         banderillas(arrayExtra);
     })
 }

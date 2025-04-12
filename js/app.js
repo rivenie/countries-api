@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", e => {
 
 const fetchData = async () => {
     try {
-        const res = await fetch("https://restcountries.com/v3.1/region/europe");
-        const data = await res.json();
+        const res = await fetch("https://restcountries.com/v3.1/all");
+        const data = await res.json();     
+        console.log(data);        
         banderillas(data);
         formularioCliente(data);
+        filtroPaises(data);
     } catch (error) {
         console.log(error);
     }
@@ -32,8 +34,9 @@ const banderillas = data => {
                 ${item.population}
             </p>
             <p>
-            <b>Language: </b>            
-            ${item.languages[Object.keys(item.languages)[0]]}
+            <b>Language:</b> ${ item.languages ? Object.values(item.languages).join(', ') : "No disponible" }           
+
+            
             </p>
             <p>
                 <b>Región: </b>
@@ -50,6 +53,7 @@ const banderillas = data => {
 
 /*
 <div class="card-content">
+${item.languages[Object.keys(item.languages)[0]]}
             <h3>${item.name}</h3>
             <p>
                 <b>Population: </b>

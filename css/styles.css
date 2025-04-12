@@ -42,7 +42,9 @@ body.dark-mode {
 }
 
 .img-fluid {
-    width: 100%;    
+    width: 100%;  
+    min-height: 237.625px;  
+    max-height: 237.625px;  
 }
 
 /* Espaciados */
@@ -143,6 +145,9 @@ body.dark-mode {
 }
 
 @media (max-width: 600px){
+    .grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
     .navbar-content {
         font-size: 0.6rem;
     }
